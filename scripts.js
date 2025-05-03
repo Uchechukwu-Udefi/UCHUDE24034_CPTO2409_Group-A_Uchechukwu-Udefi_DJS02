@@ -7,21 +7,17 @@ form.addEventListener("submit", (event) => {
   const { dividend, divider } = Object.fromEntries(entries);
 
   //Dividing numbers result in a decimal number
-  if (dividend % divider !== 0) {
-    result.innerText = "Error: Division results in a decimal number.";
-    return;
-  };
+  result.innerText = Math.floor(dividend / divider);
+  console.log(`Result: ${Math.floor(dividend / divider)}`);
 
   //Validation when values are missing
   if (dividend === "" || divider === "") {
-    result.innerText = "Error: Please fill in all fields.";
+    result.innerText = "Division not performed. Both values are required in inputs. Try again";
     return;
   };
-  console.log(dividend, divider);
+
   
 
-
-  result.innerText = dividend / divider;
 });
 
 // Scenario: Starting program state
