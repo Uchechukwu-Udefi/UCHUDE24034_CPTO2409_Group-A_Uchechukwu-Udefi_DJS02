@@ -16,7 +16,12 @@ form.addEventListener("submit", (event) => {
     return;
   };
 
-  
+  //An invalid division should log an error in the console
+  if (divider === "0") {
+    console.error("Error: Division by zero is not allowed.");
+    result.innerText = "Division not performed. Invalid number provided. Try again";
+    return;
+  }
 
 });
 
