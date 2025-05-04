@@ -6,10 +6,6 @@ form.addEventListener("submit", (event) => {
   const entries = new FormData(event.target);
   const { dividend, divider } = Object.fromEntries(entries);
 
-  //Dividing numbers result in a decimal number
-  result.innerText = Math.floor(dividend / divider);
-  console.log(`Result: ${Math.floor(dividend / divider)}`);
-
   //Validation when values are missing
   if (dividend === "" || divider === "") {
     result.innerText = "Division not performed. Both values are required in inputs. Try again";
@@ -43,6 +39,10 @@ form.addEventListener("submit", (event) => {
   if (isNaN(dividend) || isNaN(divider)) {
     displayCriticalError();
   };
+  
+  //Dividing numbers result in a decimal number
+  result.innerText = Math.floor(dividend / divider);
+  console.log(`Result: ${Math.floor(dividend / divider)}`);
 
 });
 
