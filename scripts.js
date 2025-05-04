@@ -23,6 +23,27 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
+  //Providing anything that is not a number should crash the program
+  function displayCriticalError() {
+    console.error("Error: Invalid input. Please provide numbers only.");
+
+    const criticalError = document.querySelector("[data-error]");
+    const errorMessage = document.querySelector(".error-message");
+
+    // Display an error message to the user
+    if (criticalError && errorMessage) {
+      errorMessage.innerText = "Something critical went wrong. Please reload the page";
+      errorMessage.hidden = false;
+      criticalError.style.display = "flex";
+      criticalError.hidden = false;
+    };
+  };
+
+  // Check if the inputs are valid numbers
+  if (isNaN(dividend) || isNaN(divider)) {
+    displayCriticalError();
+  };
+
 });
 
 // Scenario: Starting program state
